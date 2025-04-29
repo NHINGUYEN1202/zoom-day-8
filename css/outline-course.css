@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+i,
+em {
+    font-style: italic;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    counter-reset: chapter;
+    position: relative;
+    padding: 20px 0;
+    background-color: #8d8d8d;
+}
+
+.course-outline {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 30px 30px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+h1 {
+    min-height: 120px;
+    line-height: 120px;
+    font-size: 3rem;
+    text-align: center;
+    position: sticky;
+    background-color: #fff;
+    color: #333;
+    top: 0;
+    z-index: 2;
+}
+
+.chapter {
+    position: relative;
+}
+
+h2 {
+    counter-increment: chapter;
+    counter-reset: lesson;
+    font-size: 2.2rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: orange;
+    color: #fff;
+    padding: 12px 16px;
+    position: sticky;
+    top: 120px;
+    z-index: 1;
+}
+
+h2::before {
+    content: "Chương " counter(chapter) ": ";
+}
+
+.lesson-list {
+    margin-bottom: 10px;
+
+}
+
+.lesson {
+    counter-increment: lesson;
+    line-height: 2.4;
+    padding: 10px 25px;
+    border-bottom: 1px solid #ccc;
+}
+
+.lesson::before {
+    content: counter(chapter) "." counter(lesson) " ";
+}
+
+.lesson:nth-child(even):hover {
+    background-color: #c5c5c5;
+}
+
+.lesson:nth-child(odd):hover {
+    background-color: #ebebeb;
+}
